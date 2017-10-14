@@ -52,6 +52,12 @@ void RGBController::setHSV(int h, int s, int v){
 }
 
 
+void RGBController::setAnimation(int type, int speed, int step){
+
+    this->sendCommand("AT+ANIM="+QString::number(type)+","+QString::number(speed)+","+QString::number(step)+"\r\n");
+}
+
+
 
 
 
