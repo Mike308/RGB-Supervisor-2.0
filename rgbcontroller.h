@@ -31,6 +31,9 @@ private slots:
     void sendGetTemperatureRequest();
     void getTemperatureSlot();
 
+signals:
+    QString getTemperature(QString temperature);
+
 
 
 
