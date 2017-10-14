@@ -74,6 +74,84 @@ ApplicationWindow {
 
     }
 
+
+
+    Popup {
+        id: setAnimationPopup
+        x: 0
+        y: 160
+        width: 320
+        height: 250
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+
+        Column {
+
+            width: 300
+            x: (parent.width-width) / 2
+
+            Label {
+
+                text: qsTr("Animation: ")
+            }
+
+            ComboBox {
+
+                id: animationType
+                width: parent.width
+
+
+            }
+
+            Label {
+
+                text: qsTr("Speed: ")
+            }
+
+            TextField {
+
+                id: speedField
+                validator: IntValidator {}
+            }
+
+            Label {
+
+                text: qsTr("Step: ")
+            }
+
+            TextField {
+
+                id: stepField
+                validator: IntValidator {}
+
+            }
+
+            MyButton {
+
+                text: qsTr("Set animation")
+                width: parent.width
+                onClicked: {
+
+                    setAnimationPopup.close()
+                }
+
+            }
+
+
+
+
+
+
+        }
+
+
+
+    }
+
+
+
     ColorDialog {
         id: colorDialog
         title: "Please choose a color"
