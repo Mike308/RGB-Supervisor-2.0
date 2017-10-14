@@ -2,7 +2,7 @@
 #define RGBCONTROLLER_H
 
 #include <QSerialPort>
-
+#include <QTimer>
 
 class RGBController : public QSerialPort
 {
@@ -16,6 +16,7 @@ public:
 
 private:
     void sendCommand(QString command);
+    QTimer *timer;
 
 
 public slots:
@@ -25,6 +26,9 @@ public slots:
     void setRGB(int r, int g, int b);
     void setHSV(int h, int s, int v);
     void setAnimation(int type, int speed, int step);
+
+private slots:
+    void sendGetTemperatureRequest();
 
 
 
