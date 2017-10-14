@@ -12,12 +12,14 @@ ApplicationWindow {
     minimumHeight: 480
     minimumWidth:  320
     title: qsTr("RGB Supervisor 2.0")
+    property alias mainPage: mainPage
 
 
 
     Page1 {
 
 
+        id: mainPage
 
 
     }
