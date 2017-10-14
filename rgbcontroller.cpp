@@ -21,3 +21,15 @@ void RGBController::connectToDevice(QString comName, int baud){
     }
 
 }
+
+void RGBController::sendCommand(QString command){
+
+    const QByteArray &commandArray = command.toLocal8Bit();
+    this->write(commandArray);
+
+}
+
+
+
+
+
