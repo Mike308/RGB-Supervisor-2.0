@@ -36,6 +36,13 @@ void RGBController::setRGB(int r, int g, int b){
 
 }
 
+void RGBController::setHSV(int h, int s, int v){
+
+    this->sendCommand("AT+HSV="+QString::number(h)+","+QString::number(s)+","+QString::number(b)+"\r\n");
+}
+
+
+
 
 
 
