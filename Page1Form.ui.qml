@@ -3,10 +3,16 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
 Item {
-
     property alias redSlider: redSlider
+    property alias text1: text1
     property alias greenSlider: greenSlider
-    property alias blueSlider: blueSlider
+    property alias rectangle: rectangle
+    property alias myButton2: myButton2
+    property alias myButton1: myButton1
+    property alias setAnimationBtn: setAnimationBtn
+
+
+
 
     RowLayout {
         anchors.horizontalCenter: parent.horizontalCenter
@@ -14,8 +20,10 @@ Item {
         anchors.top: parent.top
     }
 
+
+
     MyButton {
-        id: myButton
+        id: setAnimationBtn
         x: 24
         y: 290
         width: 274
@@ -50,7 +58,7 @@ Item {
         y: 8
         width: 274
         height: 57
-        text: qsTr("Text")
+        text: qsTr("0")
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: 39
     }
@@ -71,6 +79,13 @@ Item {
         y: 142
         width: 274
         height: 38
+        to: 255
+        stepSize: 1
+        from: 0
+        value: 1
+
+
+
     }
 
     MySlider {
@@ -79,6 +94,8 @@ Item {
         y: 186
         width: 274
         height: 38
+        stepSize: 1
+        to: 255
         sliderColor: "#00ff00"
     }
 
@@ -88,6 +105,8 @@ Item {
         y: 230
         width: 274
         height: 38
+        stepSize: 1
+        to: 255
         sliderColor: "#0000ff"
     }
 }
