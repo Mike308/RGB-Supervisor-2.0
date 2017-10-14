@@ -50,6 +50,7 @@ ApplicationWindow {
 
                 id: comList
                 width: parent.width
+                model: portsNameModel
 
 
             }
