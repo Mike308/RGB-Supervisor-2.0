@@ -70,6 +70,16 @@ void RGBController::sendGetTemperatureRequest(){
 
 }
 
+void RGBController::getTemperatureSlot(){
+
+    if (this->canReadLine()){
+
+        QString temperature = QString::fromLatin1(this->readAll());
+        emit getTemperature(temperature);
+    }
+
+}
+
 
 
 
