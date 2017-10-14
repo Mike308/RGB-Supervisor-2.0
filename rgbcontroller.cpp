@@ -19,6 +19,7 @@ void RGBController::connectToDevice(QString comName, int baud){
         this->setStopBits(QSerialPort::OneStop);
         this->open(QIODevice::ReadWrite);
         timer->start(3000);
+        connect(this,SIGNAL(readyRead()),this,getTemperatureSlot());
 
 
 
@@ -68,6 +69,8 @@ void RGBController::sendGetTemperatureRequest(){
     this->sendCommand("AT+TEMP?\r\n");
 
 }
+
+
 
 
 
