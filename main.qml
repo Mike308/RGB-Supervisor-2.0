@@ -3,6 +3,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 import QtQuick.Dialogs 1.2
 
+
 ApplicationWindow {
     visible: true
     width: 320
@@ -145,6 +146,7 @@ ApplicationWindow {
                 width: parent.width
                 onClicked: {
 
+                    rgbController.setAnimation(animationType.currentIndex,speedField.text,stepField.text)
                     setAnimationPopup.close()
                 }
 
