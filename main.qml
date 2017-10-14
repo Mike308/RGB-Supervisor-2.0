@@ -111,6 +111,7 @@ ApplicationWindow {
 
                 id: animationType
                 width: parent.width
+                model: ["Color wheel","Random color switching"]
 
 
             }
