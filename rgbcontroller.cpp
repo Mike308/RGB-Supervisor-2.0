@@ -3,7 +3,7 @@
 RGBController::RGBController()
 {
     timer = new QTimer();
-    connect(timer,SIGNAL(timeout()),this,sendGetTemperatureRequest());
+    connect(timer,SIGNAL(timeout()),this,SLOT(sendGetTemperatureRequest()));
 
 }
 
@@ -19,7 +19,7 @@ void RGBController::connectToDevice(QString comName, int baud){
         this->setStopBits(QSerialPort::OneStop);
         this->open(QIODevice::ReadWrite);
         timer->start(3000);
-        connect(this,SIGNAL(readyRead()),this,getTemperatureSlot());
+        connect(this,SIGNAL(readyRead()),this,SLOT(getTemperatureSlot()));
 
 
 
