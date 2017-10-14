@@ -22,6 +22,16 @@ void RGBController::connectToDevice(QString comName, int baud){
 
 }
 
+void RGBController::disconnectFromDevice(){
+
+    this->close();
+}
+
+bool RGBController::getConnectionStatus(){
+
+    return this->isOpen();
+}
+
 void RGBController::sendCommand(QString command){
 
     const QByteArray &commandArray = command.toLocal8Bit();
@@ -38,7 +48,7 @@ void RGBController::setRGB(int r, int g, int b){
 
 void RGBController::setHSV(int h, int s, int v){
 
-    this->sendCommand("AT+HSV="+QString::number(h)+","+QString::number(s)+","+QString::number(b)+"\r\n");
+    this->sendCommand("AT+HSV="+QString::number(h)+","+QString::number(s)+","+QString::number(v)+"\r\n");
 }
 
 
