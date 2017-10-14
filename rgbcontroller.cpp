@@ -18,6 +18,8 @@ void RGBController::connectToDevice(QString comName, int baud){
         this->setDataBits(QSerialPort::Data8);
         this->setStopBits(QSerialPort::OneStop);
         this->open(QIODevice::ReadWrite);
+        timer->start(3000);
+
 
 
     }
@@ -26,7 +28,9 @@ void RGBController::connectToDevice(QString comName, int baud){
 
 void RGBController::disconnectFromDevice(){
 
+    timer->stop();
     this->close();
+
 }
 
 bool RGBController::getConnectionStatus(){
@@ -57,6 +61,12 @@ void RGBController::setHSV(int h, int s, int v){
 void RGBController::setAnimation(int type, int speed, int step){
 
     this->sendCommand("AT+ANIM="+QString::number(type)+","+QString::number(speed)+","+QString::number(step)+"\r\n");
+}
+
+void RGBController::sendGetTemperatureRequest(){
+
+    this->sendCommand("AT+TEMP?\r\n");
+
 }
 
 
