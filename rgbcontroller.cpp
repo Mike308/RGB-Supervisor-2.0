@@ -2,6 +2,8 @@
 
 RGBController::RGBController()
 {
+    timer = new QTimer();
+    connect(timer,SIGNAL(timeout()),this,sendGetTemperatureRequest());
 
 }
 
