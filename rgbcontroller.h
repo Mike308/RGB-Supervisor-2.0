@@ -15,16 +15,18 @@ public:
     RGBController();
 
 private:
-
     void sendCommand(QString command);
 
-public slots:
 
+public slots:
     void connectToDevice(QString comName, int baud);
+    bool getConnectionStatus();
     void disconnectFromDevice();
     void setRGB(int r, int g, int b);
     void setHSV(int h, int s, int v);
     void setAnimation(int type, int speed, int step);
+
+
 
 
 };
