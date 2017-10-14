@@ -29,6 +29,8 @@ public slots:
 
 private slots:
     void sendGetTemperatureRequest();
+    void getTemperatureSlot();
+
 
 
 
