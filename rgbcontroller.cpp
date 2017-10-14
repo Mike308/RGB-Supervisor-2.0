@@ -29,6 +29,16 @@ void RGBController::sendCommand(QString command){
 
 }
 
+void RGBController::setRGB(int r, int g, int b){
+
+    this->sendCommand("AT+RGB="+QString::number(r)+","+QString::number(g)+","+QString::number(b)+"\r\n");
+
+
+}
+
+
+
+
 
 
 
