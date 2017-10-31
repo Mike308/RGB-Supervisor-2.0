@@ -4,13 +4,13 @@ import QtQuick.Layouts 1.0
 
 Item {
     property alias redSlider: redSlider
-    property alias text1: text1
     property alias greenSlider: greenSlider
     property alias rectangle: rectangle
     property alias myButton2: myButton2
     property alias myButton1: myButton1
     property alias setAnimationBtn: setAnimationBtn
-
+    property alias blueSlider: blueSlider
+    property alias temperatureText: temperatureText
 
 
 
@@ -53,7 +53,7 @@ Item {
     }
 
     Text {
-        id: text1
+        id: temperatureText
         x: 24
         y: 8
         width: 274
