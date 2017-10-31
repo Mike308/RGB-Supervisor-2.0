@@ -17,7 +17,7 @@ Page1Form {
     }
 
 
-    blueSlider.onValueChanged: {
+   blueSlider.onValueChanged:  {
 
         rgbController.setRGB(redSlider.value,greenSlider.value,blueSlider.value)
         rectangle.color = Qt.rgba(redSlider.value/255,greenSlider.value/255,blueSlider.value/255,1)
