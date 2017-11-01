@@ -28,9 +28,9 @@ void RGBController::connectToDevice(){
         this->setFlowControl(QSerialPort::NoFlowControl);
         this->setDataBits(QSerialPort::Data8);
         this->setStopBits(QSerialPort::OneStop);
+        emit isConnecting();
         this->open(QIODevice::ReadWrite);
-        timer->start(3000);
-        connect(this,SIGNAL(readyRead()),this,SLOT(getTemperatureSlot()));
+        emit isConnectingFinish();
 
 
 
