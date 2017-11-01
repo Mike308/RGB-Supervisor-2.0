@@ -1,14 +1,25 @@
 #include "rgbcontroller.h"
+#include <QDebug>
 
 RGBController::RGBController()
 {
-    timer = new QTimer();
-    connect(timer,SIGNAL(timeout()),this,SLOT(sendGetTemperatureRequest()));
+
+
 
 }
 
 
-void RGBController::connectToDevice(QString comName, int baud){
+void RGBController::setConnectionParameters(QString comName, int baud){
+
+    this->comName = comName;
+    this->baud = baud;
+}
+
+
+void RGBController::connectToDevice(){
+
+
+    qDebug () << "Connecting...";
 
     if (!this->isOpen()){
 
