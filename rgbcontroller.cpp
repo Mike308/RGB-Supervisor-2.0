@@ -40,8 +40,7 @@ void RGBController::connectToDevice(){
 
 void RGBController::disconnectFromDevice(){
 
-    timer->stop();
-    this->close();
+     this->close();
 
 }
 
