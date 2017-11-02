@@ -12,6 +12,19 @@ Page1Form {
 
          }
 
+         onQmlConnecting: {
+
+             popup.close()
+             connectingPopup.open()
+             busyIndicator.running = true
+
+         }
+
+         onQmlConnectingFinish: {
+
+           connectingPopup.close()
+         }
+
 
 
     }
@@ -37,6 +50,8 @@ Page1Form {
 
     }
     myButton2.onClicked: {
+
+
 
         if (rgbController.getConnectionStatus()===false){
 
