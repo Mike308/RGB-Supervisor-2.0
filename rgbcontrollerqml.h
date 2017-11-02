@@ -33,8 +33,8 @@ public slots:
     void setAnimation(int type, int speed, int step);
 
 private slots:
-//    void sendGetTemperatureRequest();
-//    void getTemperatureSlot();
+    void sendGetTemperatureRequest();
+    void getTemperatureSlot(QString temperature);
     void getConnecting();
     void getConnectingFinish();
 
@@ -49,6 +49,8 @@ signals:
     void setAnimationSignal(int type, int speed, int step);
     bool getConnectionStatusSignal();
     void setParameterSignal(QString comName, int baud);
+    void sendGetTemperatureRequestSignal();
+
 
 
 
