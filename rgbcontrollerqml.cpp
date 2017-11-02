@@ -27,6 +27,7 @@ void RGBControllerQML::connectToDevice(QString comName, int baud){
 
     rgbControllerThread = new QThread();
     rgbController->moveToThread(rgbControllerThread);
+
     connect(rgbControllerThread,SIGNAL(started()),rgbController,SLOT(connectToDevice()));
     connect(rgbControllerThread,SIGNAL(finished()),rgbController,SLOT(deleteLater()));
     connect(rgbController,SIGNAL(isConnecting()),this,SLOT(getConnecting()));
