@@ -37,9 +37,15 @@ void RGBControllerQML::connectToDevice(QString comName, int baud){
     connect(this,SIGNAL(setHSVSignal(int,int,int)),rgbController,SLOT(setHSV(int,int,int)));
     connect(this,SIGNAL(setAnimationSignal(int,int,int)),rgbController,SLOT(setAnimation(int,int,int)));
     connect(this,SIGNAL(getConnectionStatusSignal()),rgbController,SLOT(getConnectionStatus()));
+    connect(rgbController,SIGNAL(getTemperature(QString)),this,SLOT(getTemperatureSlot(QString)));
+    connect(this,SIGNAL(sendGetTemperatureRequestSignal()),rgbController,SLOT(sendGetTemperatureRequest()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(sendGetTemperatureRequest()));
+
+
 
 
     rgbControllerThread->start();
+    timer->start(3000);
 
 
 }
