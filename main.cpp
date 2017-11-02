@@ -3,14 +3,14 @@
 #include <QQmlContext>
 #include <QSerialPortInfo>
 
-#include "rgbcontroller.h"
+#include "rgbcontrollerqml.h"
 
 
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QGuiApplication app(argc, argv);
-    RGBController rgbController;
+    RGBControllerQML rgbControllerQML;
     QSerialPortInfo serialPortInfo;
     QList<QSerialPortInfo> serialPortInfoList = serialPortInfo.availablePorts();
     QStringList portsName;
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     QQmlContext *appContext = engine.rootContext();
-    appContext->setContextProperty("rgbController",&rgbController);
+    appContext->setContextProperty("rgbController",&rgbControllerQML);
     appContext->setContextProperty("portsNameModel",QVariant::fromValue(portsName));
 
     engine.load(QUrl(QLatin1String("qrc:/main.qml")));
