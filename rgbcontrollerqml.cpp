@@ -78,7 +78,7 @@ bool RGBControllerQML::getConnectionStatus(){
 
 void RGBControllerQML::disconnectFromDevice(){
 
-
+    timer->stop();
     emit disconnectSignal();
     rgbControllerThread->requestInterruption();
 
