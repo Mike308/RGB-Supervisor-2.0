@@ -62,7 +62,6 @@ ApplicationWindow {
                 width: parent.width
                 onClicked: {
 
-
                     rgbController.connectToDevice(comList.currentText,9600)
                     mainPage.myButton2.text = "DISCONNECT"
                     popup.close()
