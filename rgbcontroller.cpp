@@ -36,6 +36,8 @@ void RGBController::connectToDevice(){
 
     }
 
+    connect(this,SIGNAL(readyRead()),this,SLOT(getTemperatureSlot()));
+
 }
 
 void RGBController::disconnectFromDevice(){
@@ -86,6 +88,7 @@ void RGBController::getTemperatureSlot(){
 
         QString temperature = QString::fromLatin1(this->readAll());
         emit getTemperature(temperature);
+
     }
 
 }
