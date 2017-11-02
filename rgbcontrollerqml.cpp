@@ -95,6 +95,13 @@ void RGBControllerQML::getConnectingFinish(){
     emit qmlConnectingFinish();
 }
 
+void RGBControllerQML::getTemperatureSlot(QString temperature){
+
+    emit getTemperature(temperature);
+}
+
+
+
 
 
 
