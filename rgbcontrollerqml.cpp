@@ -65,10 +65,10 @@ void RGBControllerQML::setRGB(int r, int g, int b){
     emit setRGBSignal(r,g,b);
 }
 
-//void RGBControllerQML::sendGetTemperatureRequest(){
+void RGBControllerQML::sendGetTemperatureRequest(){
 
-//    //rgbController->sendGetTemperatureRequest();
-//}
+    emit sendGetTemperatureRequestSignal();
+}
 
 bool RGBControllerQML::getConnectionStatus(){
 
