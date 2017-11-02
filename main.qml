@@ -186,6 +186,51 @@ ApplicationWindow {
     }
 
 
+    Popup {
+        id: connectingPopup
+        x: 0
+        y: 160
+        width: 320
+        height: 160
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+
+
+        Column {
+
+            width: 200
+            x: (parent.width-width) / 2
+
+
+            Label {
+
+                width: parent.width
+                text: qsTr("Connecting...");
+
+            }
+
+            BusyIndicator {
+
+                width: parent.width
+                id: busyIndicator
+
+
+            }
+
+
+
+
+
+
+
+        }
+
+
+
+    }
+
+
 
 
 
