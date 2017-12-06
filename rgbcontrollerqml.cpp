@@ -4,6 +4,7 @@
 RGBControllerQML::RGBControllerQML()
 {
     rgbController = new RGBController();
+    rgbControllerThread = new QThread();
 
     timer = new QTimer();
 
@@ -25,7 +26,6 @@ void RGBControllerQML::connectToDevice(QString comName, int baud){
     connect(this,SIGNAL(setParameterSignal(QString,int)),rgbController,SLOT(setConnectionParameters(QString,int)));
     emit setParameterSignal(comName,baud);
 
-    rgbControllerThread = new QThread();
     rgbController->moveToThread(rgbControllerThread);
 
     connect(rgbControllerThread,SIGNAL(started()),rgbController,SLOT(connectToDevice()));
