@@ -58,12 +58,19 @@ void RGBControllerQML::setAnimation(int type, int speed, int step){
 
 void RGBControllerQML::setHSV(int h, int s, int v){
 
-    emit setHSVSignal(h,s,v);
+    this->setH = h;
+    this->setS = s;
+    this->setV = v;
+    QTimer::singleShot(500,this,SLOT(setHSVSlot()));
+
 }
 
 void RGBControllerQML::setRGB(int r, int g, int b){
 
-    emit setRGBSignal(r,g,b);
+    this->setR = r;
+    this->setG = g;
+    this->setB = b;
+    QTimer::singleShot(500,this,SLOT(setRGBSlot()));
 }
 
 void RGBControllerQML::sendGetTemperatureRequest(){
@@ -99,6 +106,18 @@ void RGBControllerQML::getConnectingFinish(){
 void RGBControllerQML::getTemperatureSlot(QString temperature){
 
     emit getTemperature(temperature);
+}
+
+void RGBControllerQML::setRGBSlot(){
+
+    emit setRGBSignal(this->setR,this->setG,this->setB);
+
+
+}
+
+void RGBControllerQML::setHSVSlot(){
+
+    emit setHSVSignal(this->setH,this->setS,this->setV);
 }
 
 

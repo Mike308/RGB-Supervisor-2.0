@@ -22,6 +22,13 @@ private:
     QThread *rgbControllerThread;
     QTimer  *timer;
     RGBController *rgbController;
+    int setR;
+    int setG;
+    int setB;
+    int setH;
+    int setS;
+    int setV;
+
 
 
 public slots:
@@ -32,11 +39,14 @@ public slots:
     void setHSV(int h, int s, int v);
     void setAnimation(int type, int speed, int step);
 
+
 private slots:
     void sendGetTemperatureRequest();
     void getTemperatureSlot(QString temperature);
     void getConnecting();
     void getConnectingFinish();
+    void setRGBSlot();
+    void setHSVSlot();
 
 
 signals:
