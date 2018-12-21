@@ -35,6 +35,7 @@ public slots:
     void setRGB(int r, int g, int b);
     void setHSV(int h, int s, int v);
     void setAnimation(int type, int speed, int step);
+    void setAnimation(int type, int speed, int step, int red, int green, int blue);
     bool getConnectionStatus();
 
 

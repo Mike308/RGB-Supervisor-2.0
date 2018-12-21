@@ -111,7 +111,7 @@ ApplicationWindow {
 
                 id: animationType
                 width: parent.width
-                model: ["Color wheel","Random color switching"]
+                model: ["Color wheel","Random color switching", "Breathing"]
 
 
             }
@@ -144,9 +144,17 @@ ApplicationWindow {
                 text: qsTr("Set animation")
                 width: parent.width
                 onClicked: {
-
-                    rgbController.setAnimation(animationType.currentIndex,speedField.text,stepField.text)
-                    setAnimationPopup.close()
+                    console.log("Choosed type: "+animationType.currentIndex)
+                    if (animationType.currentIndex < 2){
+                        console.log("R: "+mainPage.redSlider.value+" G: "+mainPage.greenSlider.value+" B: "+mainPage.blueSlider.value)
+                        rgbController.setAnimation(animationType.currentIndex+1, speedField.text, stepField.text, mainPage.redSlider.value, mainPage.greenSlider.value, mainPage.blueSlider.value)
+                        setAnimationPopup.close()
+                    }else{
+                        console.log("Breathing test "+animationType.currentIndex+3)
+                        console.log("R: "+mainPage.redSlider.value+" G: "+mainPage.greenSlider.value+" B: "+mainPage.blueSlider.value)
+                        rgbController.setAnimation(animationType.currentIndex+3, speedField.text, stepField.text, mainPage.redSlider.value, mainPage.greenSlider.value, mainPage.blueSlider.value)
+                        setAnimationPopup.close()
+                    }
                 }
 
             }

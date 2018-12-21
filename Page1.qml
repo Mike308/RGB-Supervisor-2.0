@@ -8,7 +8,7 @@ Page1Form {
 
          onGetTemperature: {
 
-             temperatureText.text = temperature
+             temperatureText.text = temperature + " °C"
 
          }
 

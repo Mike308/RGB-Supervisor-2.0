@@ -1,5 +1,6 @@
 #include "rgbcontroller.h"
 #include <QDebug>
+#include <QColor>
 
 RGBController::RGBController()
 {
@@ -42,7 +43,7 @@ void RGBController::connectToDevice(){
 
 void RGBController::disconnectFromDevice(){
 
-     this->close();
+    this->close();
 
 }
 
@@ -74,6 +75,20 @@ void RGBController::setHSV(int h, int s, int v){
 void RGBController::setAnimation(int type, int speed, int step){
 
     this->sendCommand("AT+ANIM="+QString::number(type)+","+QString::number(speed)+","+QString::number(step)+"\r\n");
+}
+
+void RGBController::setAnimation(int type, int speed, int step, int red, int green, int blue){
+    qDebug () << "Type: " << type << " Speed: " << speed << " Step: " << step << " Red: " << red << " Green: " << green << " Blue: " << blue;
+    QColor color;
+    color.setRgb(red,green,blue);
+    int h;
+    int s;
+    int v;
+    color.getHsv(&h,&s,&v);
+    int sVal = (s * 100) / 255;
+    int vVal = (v * 100) / 255;
+    qDebug () << "H: " << h << " S: " << sVal << " V: "<< vVal;
+    this->sendCommand("AT+ANIM="+QString::number(type)+","+QString::number(speed)+","+QString::number(step)+","+QString::number(h)+","+QString::number(sVal)+","+QString::number(vVal)+"\r\n");
 }
 
 void RGBController::sendGetTemperatureRequest(){

@@ -38,6 +38,7 @@ public slots:
     void setRGB(int r, int g, int b);
     void setHSV(int h, int s, int v);
     void setAnimation(int type, int speed, int step);
+    void setAnimation(int type, int speed, int step, int red, int green, int blue);
 
 
 private slots:
@@ -57,6 +58,7 @@ signals:
     void setRGBSignal(int r, int g, int b);
     void setHSVSignal(int h, int s, int v);
     void setAnimationSignal(int type, int speed, int step);
+    void setAnimationSignal(int type, int speed, int step, int red, int green, int blue);
     bool getConnectionStatusSignal();
     void setParameterSignal(QString comName, int baud);
     void sendGetTemperatureRequestSignal();
